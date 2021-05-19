@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatsy - User Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img class="background-img" src="img/background3.jpg" alt="" srcset="">
+    <div id="loading_message" class="loading-screen">Uploading </div>
+    <div id="error_message" class="error-message">Please fill in all the info</div>
+    <div class="main-container">
+        <form id="user_form" class="main-con-div">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="description" id="description" placeholder="Description">
+            <select name="categories" id="categories">
+                <option value="Rice" id="Rice">Rice</option>
+                <option value="Pizza" id="pizza">Pizza</option>
+                <option value="Noodles" id="Rice">Noodles</option>
+                <option value="Japanese Cuisine" id="japanese">Japanese Cuisine</option>
+                <option value="Drink" id="drink">Drink</option>
+                <option value="Dessert" id="dessert">Dessert</option>
+            </select>
+            <input type="file" name="image" id="image" accept="images/*">
+            <div>
+                <button id="submit" type="button">Submit</button>
+            </div>
+        </form>
+        <button onclick="window.location.href='menu.html'" class="main-con-btn">Edit Menu</button>
+        <button class="main-con-btn">Check Dine-In Order</button>
+        <button class="main-con-btn">Check Delivery Order</button>
+        <button class="main-con-btn">Check Booked Table</button>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
