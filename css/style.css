@@ -20,6 +20,7 @@ body::-webkit-scrollbar {
     width: 150px;
     height: 150px;
     border-radius: 30px;
+    cursor: pointer;
 }
 .header-main-con p{
     display: flex;
@@ -137,21 +138,32 @@ body::-webkit-scrollbar {
     cursor: pointer;
     color: gray;
 }
-/* Restauran container*/
+/* Restaurant container*/
 .restaurant-main-container{
     width: 100%;
     height: auto;
+    overflow: hidden;
+    overflow-y: auto;
     padding: 20px 10px 20px 10px;
     display: flex;
     flex-wrap: wrap;
+    max-height: 500px;
 }
 .restaurant-div{
-    height: auto;
+    height: 150px;
     width: 45%;
     margin: 2.5%;
     display: flex;
     box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
     border-radius: 20px;
+}
+.loading-restaurant{
+    width: 100%;
+    height: 400px;
+}
+.restaurant-h4{
+    width: 100%;
+    text-align: center;
 }
 .restaurant-div img{
     width: 200px;
@@ -199,7 +211,7 @@ body::-webkit-scrollbar {
     margin: 0 50px;
 }
 .promoting-container div p, .promoting-container div button{
-    margin: 20px;
+    margin: 10px;
 }
 .promoting-container div button{
     padding: 10px;
@@ -209,14 +221,13 @@ body::-webkit-scrollbar {
     outline: none;
     cursor: pointer;
 }
-
 /* Footer Container */
 .footer-container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 30px;
 }
 .footer-container div{
     width: 300px;
@@ -280,6 +291,9 @@ body::-webkit-scrollbar {
     .restaurant-header h2{
         font-size: 18px;
     }
+    .restaurant-div{
+        height: 140px;
+    }
     .restaurant-div img{
         width: 180px;
     }
@@ -321,6 +335,9 @@ body::-webkit-scrollbar {
     }
     .restaurant-header h2{
         font-size: 16px;
+    }
+    .restaurant-div{
+        height: 120px;
     }
     .restaurant-div img{
         width: 160px;
@@ -367,6 +384,9 @@ body::-webkit-scrollbar {
     .sorting-main-div div{
         margin: 20px;
     }
+    .restaurant-div{
+        height: 110px;
+    }
     .restaurant-div img{
         width: 140px;
     }
@@ -403,6 +423,9 @@ body::-webkit-scrollbar {
     }
     .side-cart-div button{
         padding: 8px 0;
+    }
+    .restaurant-div{
+        height: 100px;
     }
     .restaurant-div img{
         width: 110px;

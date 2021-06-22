@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eatsy</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
     <header class="header-main-con">
-        <div class="img-con"><img src="img/logo.jpeg" alt="" srcset=""></div>
+        <div id="home-btn" class="img-con"><img src="img/logo.jpeg" alt="" srcset=""></div>
         <div class="cart-con" id="cart">
             <p class="cart-con-p">0</p>
             <i id="cart_btn" class="fas fa-2x fa-shopping-cart"></i>
@@ -46,53 +46,54 @@
         <div class="sorting-main-div">
             <div><i class="fas fa-qrcode"></i></div>
             <div>
-                <select id="">
+                <select id="trending-restaurant-select">
                     <option selected="true" disabled="disabled">Sort By Categries</option>
                     <option value="Chinese">Chinese</option>
-                    <option value="Chinese">Indian</option>
-                    <option value="Chinese">Malay</option>
-                    <option value="Chinese">Eastern</option>
-                    <option value="Chinese">Japanese</option>
-                    <option value="Chinese">Korean</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Malay">Malay</option>
+                    <option value="Eastern">Eastern</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
                 </select>
             </div>
             <div>
                 <i class="fas fa-search"></i>
-                <input type="text" id="main_search" placeholder="Search">
+                <input type="text" id="trending-restaurant-search" placeholder="Search">
             </div>
         </div>
-        <div class="cuisine-container">
+        <div id="cuisine_con" class="cuisine-container">
             <div>
-                <img src="https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img id="Chinese" src="https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                 <h5>Chinese</h5>
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img id="Indian" src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                 <h5>Indian</h5>
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/6941026/pexels-photo-6941026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img id="Malay" src="https://images.pexels.com/photos/6941026/pexels-photo-6941026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                 <h5>Malay</h5>
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/6544629/pexels-photo-6544629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img id="Eastern" src="https://images.pexels.com/photos/6544629/pexels-photo-6544629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                 <h5>Eastern</h5>
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img id="Japanese" src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                 <h5>Japanese</h5>
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/262897/pexels-photo-262897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="">
+                <img id="Korean" src="https://images.pexels.com/photos/262897/pexels-photo-262897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="">
                 <h5>Korean</h5>
             </div>
         </div>
         <div class="restaurant-header">
             <h2>Trending Restaurants</h2>
-            <p>See All</p>
+            <p id="trending-restaurant-all">See All</p>
         </div>
-        <div class="restaurant-main-container">
-            <div class="restaurant-div">
+        <div id="trending-restaurant-con" class="restaurant-main-container">
+            <img class="loading-restaurant" src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" srcset="">
+            <!-- <div class="restaurant-div">
                 <img src="img/background1.jpg" alt="" srcset="">
                 <div class="restaurant-div-info">
                     <h4>Restaurant Name</h4>
@@ -102,90 +103,14 @@
                 <div class="restaurant-div-btn">
                     <i class="fas fa-arrow-alt-circle-right"></i>
                 </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
-            <div class="restaurant-div">
-                <img src="img/background1.jpg" alt="" srcset="">
-                <div class="restaurant-div-info">
-                    <h4>Restaurant Name</h4>
-                    <p>Eastern Cuisine</p>
-                    <p>From 2pm to 8pm</p>
-                </div>
-                <div class="restaurant-div-btn">
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="promoting-container">
         <div>
             <p>Join us to be a part of our restaurant</p>
-            <button>Join Us</button>
+            <p>You will be able to have your own account and customised dashboard</p>
+            <button>Join Us Now</button>
         </div>
         <img src="img/logo.jpeg" alt="" srcset="">
     </div>
@@ -206,6 +131,10 @@
             <a href="https://github.com/Ken329">Ken Liau</a>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
