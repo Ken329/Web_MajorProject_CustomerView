@@ -11,6 +11,10 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+document.getElementById('categories-go-back').addEventListener('click', function(){
+    window.history.back();
+})
+
 document.addEventListener('DOMContentLoaded', function(){
     var baseUrl = (window.location).href;
     var categories = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
