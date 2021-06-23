@@ -37,7 +37,7 @@ cuisineCon.addEventListener('click', function(e){
 })
 trenRestaurantAll.addEventListener('click', function(e){
     //window.open(`../categories.html?categories=All`, "_self");
-    window.open(`https://ken329.github.io/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
+    window.open(`/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
 })
 
 function getData(){
