@@ -46,10 +46,10 @@ body::-webkit-scrollbar {
     background-color: white;
     padding: 20px 0;
     border-top-left-radius: 20px;
+    z-index: 9;
 }
 .side-cart-div table{
     width: 100%;
-
 }
 .side-cart-div table th, .side-cart-div table td{
     padding: 10px;
@@ -241,6 +241,7 @@ body::-webkit-scrollbar {
 .footer-container div a{
     text-decoration: none;
     color: black;
+    margin-top: 5px;
 }
 @media screen and (max-width: 1050px){
     .restaurant-div{

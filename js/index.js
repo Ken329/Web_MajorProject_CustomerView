@@ -31,10 +31,13 @@ trenRestaurantSearch.oninput = function(){
     alterData(trenRestaurantSearch.value, "search", result);
 }
 cuisineCon.addEventListener('click', function(e){
-    window.open(`../categories.html?categories=${e.target.id}`, "_self");
+    if(e.target.className === "cuisine"){
+        window.open(`../categories.html?categories=${e.target.id}`, "_self");
+    }
 })
 trenRestaurantAll.addEventListener('click', function(e){
-    window.open(`../categories.html?categories=All`, "_self");
+    //window.open(`../categories.html?categories=All`, "_self");
+    window.open(`https://ken329.github.io/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
 })
 
 function getData(){

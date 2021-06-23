@@ -1,0 +1,307 @@
+body{
+    background-image: url('https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cart-con{
+    display: flex;
+    justify-content: flex-end;
+}
+.cart-con div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 0 20px;
+}
+.cart-con div i{
+    color: white;
+}
+.menu-title{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 80px;
+    color: white;
+}
+.menu-con{
+    width: 100%;
+    height: auto;
+    display: flex;
+    min-height: 450px;
+    color: white;
+    padding: 50px 100px;
+}
+.menu-categories-con{
+    width: 150px;
+    height: auto;
+}
+.menu-categories-con h3{
+    width: 100%;
+    text-align: center;
+}
+.menu-categories-con ul{
+    margin-top: 20px;
+    list-style: none;
+}
+.menu-categories-con ul li{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-categories-con ul li a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+.menu-categories-con ul li:hover{
+    opacity: 0.7;
+    background-color: grey;
+}
+.menu-display-con{
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+}
+.menu-display-con h3{
+    width: 100%;
+    padding: 5px 25px;
+}
+.display-con-div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu-display-div{
+    width: 200px;
+    height: min-content;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    margin: 10px 20px;
+    position: relative;
+}
+.menu-display-div img{
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.menu-display-div h4, .menu-display-div p{
+    width: 80%;
+    height: 30px;
+    margin: 15px;
+}
+.menu-display-div button{
+    width: 80%;
+    margin: 10px 20px;
+    padding: 5px;
+    background-color: cornsilk;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.discount-logo{
+    top: 5px;
+    left: 10px;
+    display: flex;
+    position: absolute;
+    background-color: red;
+    opacity: 0.7;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 13px;
+}
+.discount-logo i{
+    margin: 0 2px;
+}
+.discount-price{
+    position: absolute;
+    top: 221px;
+    left: 10px;
+}
+.discount-price div{
+    border-top: 2px solid black;
+    width: 100px;
+}
+.menu-footer{
+    color: white;
+}
+.menu-footer div a{
+    color: white;
+}
+
+@media screen and (max-width: 900px){
+    .menu-con{
+        padding: 50px 80px;
+    }
+    .menu-display-con{
+        padding: 0 18px;
+    }
+    .menu-display-div{
+        width: 190px;
+        margin: 10px 18px;
+    }
+    .menu-display-div h5, .menu-display-div p{
+        margin: 12px;
+    }
+    .menu-display-div button{
+        margin: 10px 18px;
+        padding: 5px;
+    }
+}
+@media screen and (max-width: 800px){
+    .menu-title{
+        display: none;
+    }
+    .menu-con{
+        padding: 50px 30px;
+    }
+    .menu-display-con{
+        padding: 0 16px;
+    }
+    .menu-display-div{
+        width: 180px;
+        margin: 10px 16px;
+    }
+    .menu-display-div h5, .menu-display-div p{
+        margin: 10px;
+    }
+    .menu-display-div button{
+        margin: 10px 16px;
+        padding: 5px;
+    }
+}
+@media screen and (max-width: 700px){
+    .menu-con{
+        padding: 50px 20px;
+    }
+    .menu-categories-con{
+        width: 140px;
+    }
+    .menu-categories-con h3{
+        font-size: 17px;
+    }
+    .menu-categories-con ul li{
+        font-size: 16px;
+    }
+    .menu-display-con{
+        padding: 0 13px;
+    }
+    .menu-display-div{
+        width: 150px;
+        margin: 10px 13px;
+        font-size: 15px;
+    }
+    .menu-display-div h5, .menu-display-div p{
+        margin: 8px;
+    }
+    .menu-display-div button{
+        margin: 8px 14px;
+        padding: 4px;
+    }
+}
+@media screen and (max-width: 600px){
+    .menu-con{
+        padding: 50px 15px;
+    }
+    .menu-categories-con{
+        width: 130px;
+    }
+    .menu-categories-con h3{
+        font-size: 16px;
+    }
+    .menu-categories-con ul li{
+        font-size: 15px;
+    }
+    .menu-display-con{
+        padding: 0 10px;
+        margin: 10px;
+    }
+    .menu-display-div{
+        width: 140px;
+        margin: 10px 11px;
+        font-size: 14px;
+    }
+    .menu-display-div button{
+        margin: 8px 12px;
+        padding: 4px;
+    }
+    .discount-logo{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 550px){
+    .menu-con{
+        padding: 50px 10px;
+    }
+    .menu-categories-con{
+        width: 120px;
+    }
+    .menu-categories-con h3{
+        font-size: 15px;
+    }
+    .menu-categories-con ul li{
+        font-size: 14px;
+    }
+    .menu-display-con{
+        padding: 0 8px;
+        margin: 8px;
+    }
+    .menu-display-div{
+        width: 130px;
+        margin: 10px 8px;
+        font-size: 13px;
+    }
+    .menu-display-div button{
+        margin: 8px 10px;
+        padding: 4px;
+    }
+    .discount-logo{
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 500px){
+    .menu-con{
+        padding: 50px 10px;
+    }
+    .menu-categories-con{
+        width: min-content;
+    }
+    .menu-categories-con h3{
+        font-size: 14px;
+    }
+    .menu-categories-con ul li{
+        font-size: 13px;
+    }
+    .menu-display-con{
+        padding: 0 6px;
+        margin: 8px;
+    }
+    .menu-display-div{
+        width: 120px;
+        margin: 5px 3px;
+        font-size: 12px;
+    }
+    .menu-display-div button{
+        margin: 8px;
+        padding: 4px;
+    }
+    .discount-logo{
+        font-size: 10px;
+    }
+    .discount-price{
+        position: absolute;
+        top: 219px;
+        left: 10px;
+    }
+    .discount-price div{
+        width: 70px;
+    }
+}
