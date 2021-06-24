@@ -12,11 +12,12 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 document.getElementById('categories-go-back').addEventListener('click', function(){
-    window.history.back();
+    //window.open('/', "_self");
+    window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 document.getElementById("categories-restaurant-con").addEventListener('click', function(e){
-    window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
-    //window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
+    //window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
+    window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
 })
 
 document.addEventListener('DOMContentLoaded', function(){

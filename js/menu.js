@@ -16,7 +16,8 @@ var categoriesCon = document.getElementById('menu-categories-con');
 var displayCon = document.getElementById('menu-display-con');
 
 document.getElementById('categories-go-back').addEventListener('click', function(){
-    window.history.back();
+    //window.open('/', "_self");
+    window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 
 document.addEventListener('DOMContentLoaded', function(){
