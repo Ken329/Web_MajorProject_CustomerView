@@ -32,8 +32,8 @@ trenRestaurantSearch.oninput = function(){
 }
 cuisineCon.addEventListener('click', function(e){
     if(e.target.className === "cuisine"){
-        window.open(`/categories.html?categories=${e.target.id}`, "_self");
-        //window.open(`/Web_MajorProject_CustomerView/categories.html?categories=${e.target.id}`, "_self");
+        //window.open(`/categories.html?categories=${e.target.id}`, "_self");
+        window.open(`/Web_MajorProject_CustomerView/categories.html?categories=${e.target.id}`, "_self");
     }
 })
 trenRestaurantAll.addEventListener('click', function(e){
