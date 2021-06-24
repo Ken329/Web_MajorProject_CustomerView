@@ -156,6 +156,8 @@ body::-webkit-scrollbar {
     display: flex;
     box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
     border-radius: 20px;
+    cursor: pointer;
+    position: relative;
 }
 .loading-restaurant{
     width: 100%;
@@ -179,14 +181,10 @@ body::-webkit-scrollbar {
 .restaurant-div-info h4, .restaurant-div-info p{
     margin: 15px;
 }
-.restaurant-div-btn{
+.click-me{
+    width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.restaurant-div-btn i{
-    cursor: pointer;
+    position: absolute;
 }
 /* Promoting Container */
 .promoting-container{
@@ -242,6 +240,15 @@ body::-webkit-scrollbar {
     text-decoration: none;
     color: black;
     margin-top: 5px;
+}
+/* Categories go back */
+.categories-back-div{
+    display: flex;
+    padding: 20px 120px;
+}
+.categories-back-div i, .categories-back-div p{
+    margin: 0 10px;
+    cursor: pointer;
 }
 @media screen and (max-width: 1050px){
     .restaurant-div{
@@ -365,6 +372,9 @@ body::-webkit-scrollbar {
     .footer-container div{
         width: 240px;
     }
+    .categories-back-div{
+        padding: 20px 60px;
+    }
 }
 @media screen and (max-width: 550px){
     .header-main-con{
@@ -450,5 +460,8 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 450px){
     .header-main-con{
         padding: 15px;
+    }
+    .categories-back-div{
+        padding: 20px 40px;
     }
 }

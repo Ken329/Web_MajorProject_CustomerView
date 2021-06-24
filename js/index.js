@@ -32,13 +32,17 @@ trenRestaurantSearch.oninput = function(){
 }
 cuisineCon.addEventListener('click', function(e){
     if(e.target.className === "cuisine"){
-        //window.open(`/categories.html?categories=${e.target.id}`, "_self");
-        window.open(`/Web_MajorProject_CustomerView/categories.html?categories=${e.target.id}`, "_self");
+        window.open(`/categories.html?categories=${e.target.id}`, "_self");
+        //window.open(`/Web_MajorProject_CustomerView/categories.html?categories=${e.target.id}`, "_self");
     }
 })
 trenRestaurantAll.addEventListener('click', function(e){
-    //window.open(`../categories.html?categories=All`, "_self");
-    window.open(`/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
+    window.open(`../categories.html?categories=All`, "_self");
+    //window.open(`/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
+})
+trenRestaurantCon.addEventListener('click', function(e){
+    window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
+    //window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
 })
 
 function getData(){
@@ -62,7 +66,7 @@ function alterData(type, action, result){
     }else{
         result.forEach((element)=>{
             var name = element.user_restaurant.substring(0, type.length).toLowerCase();
-            if(name === type){
+            if(name === type.toLowerCase()){
                 newResult.push(element);
             }
         })
@@ -81,9 +85,7 @@ function putData(result){
                             <p>${element.user_cuisine}</p>
                             <p>From ${element.user_start_time} to ${element.user_end_time}</p>
                         </div>
-                        <div class="restaurant-div-btn">
-                            <i class="fas fa-arrow-alt-circle-right"></i>
-                        </div>
+                        <div class="click-me"  id="${element.user_id}"></div>
                     </div>`;
          })
     }else{

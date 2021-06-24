@@ -14,6 +14,10 @@ firebase.initializeApp(firebaseConfig);
 document.getElementById('categories-go-back').addEventListener('click', function(){
     window.history.back();
 })
+document.getElementById("categories-restaurant-con").addEventListener('click', function(e){
+    window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
+    //window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
+})
 
 document.addEventListener('DOMContentLoaded', function(){
     var baseUrl = (window.location).href;
@@ -34,9 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <p>${element.data().user_cuisine}</p>
                                 <p>From ${element.data().user_start_time} to ${element.data().user_end_time}</p>
                             </div>
-                            <div class="restaurant-div-btn">
-                                <i class="fas fa-arrow-alt-circle-right"></i>
-                            </div>
+                            <div class="click-me" id="${element.data().user_id}"></div>
                         </div>`;
             })
             document.getElementById("categories-restaurant-con").innerHTML = html;
@@ -52,9 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <p>${element.data().user_cuisine}</p>
                                 <p>From ${element.data().user_start_time} to ${element.data().user_end_time}</p>
                             </div>
-                            <div class="restaurant-div-btn">
-                                <i class="fas fa-arrow-alt-circle-right"></i>
-                            </div>
+                            <div class="click-me" id="${element.data().user_id}"></div>
                         </div>`;
             })
             document.getElementById("categories-restaurant-con").innerHTML = html;

@@ -1,5 +1,4 @@
 body{
-    background-image: url('https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,13 +15,6 @@ body{
     margin: 0 20px;
 }
 .cart-con div i{
-    color: white;
-}
-.menu-title{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 80px;
     color: white;
 }
 .menu-con{
@@ -69,7 +61,7 @@ body{
 }
 .menu-display-con h3{
     width: 100%;
-    padding: 5px 25px;
+    padding: 0px 25px 5px 25px;
 }
 .display-con-div{
     display: flex;
@@ -136,6 +128,9 @@ body{
 .menu-footer div a{
     color: white;
 }
+.categories-back-div i, .categories-back-div p{
+    color: white;
+}
 
 @media screen and (max-width: 900px){
     .menu-con{
@@ -157,9 +152,6 @@ body{
     }
 }
 @media screen and (max-width: 800px){
-    .menu-title{
-        display: none;
-    }
     .menu-con{
         padding: 50px 30px;
     }
@@ -214,7 +206,7 @@ body{
     .menu-categories-con{
         width: 130px;
     }
-    .menu-categories-con h3{
+    .menu-categories-con h3, .menu-display-con h3{
         font-size: 16px;
     }
     .menu-categories-con ul li{
@@ -244,7 +236,7 @@ body{
     .menu-categories-con{
         width: 120px;
     }
-    .menu-categories-con h3{
+    .menu-categories-con h3, .menu-display-con h3{
         font-size: 15px;
     }
     .menu-categories-con ul li{
@@ -274,7 +266,7 @@ body{
     .menu-categories-con{
         width: min-content;
     }
-    .menu-categories-con h3{
+    .menu-categories-con h3, .menu-display-con h3{
         font-size: 14px;
     }
     .menu-categories-con ul li{
