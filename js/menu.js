@@ -21,9 +21,9 @@ document.getElementById('categories-go-back').addEventListener('click', function
 })
 
 document.addEventListener('DOMContentLoaded', function(){
-    var baseUrl = (window.location).href;
-    var restaurantID = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
-    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const restaurantID = urlParams.get('restaurantID');
 
     firebase.firestore().collection('user').where("user_id", "==", restaurantID).get()
     .then((doc)=>{

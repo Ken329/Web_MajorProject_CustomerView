@@ -21,8 +21,9 @@ document.getElementById("categories-restaurant-con").addEventListener('click', f
 })
 
 document.addEventListener('DOMContentLoaded', function(){
-    var baseUrl = (window.location).href;
-    var categories = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const categories = urlParams.get('categories');
 
     document.getElementById('categories-restaurant-h4').innerHTML = `${categories} Cuisine Restaurant`
 
