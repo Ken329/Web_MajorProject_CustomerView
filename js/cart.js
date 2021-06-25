@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
     if(restaurantID !== null){
         checkin.style.color = "#23F426";
+        document.getElementById('menu-display-con').addEventListener("click", function(e){
+            if(e.target.className === "add-btn"){
+                console.log(e.target.id);
+            }
+        })
     }else{
         checkin.style.color = "#080808";
     }
@@ -39,7 +44,6 @@ cart_btn.addEventListener('click', function(){
     if(check){
         cart_con.style.right = "0";
         check = false;
-        window.setTimeout("clickHere.style.display = 'none'", 3000);
     }else{
         cart_con.style.right = "-400px";
         check = true;
@@ -47,10 +51,11 @@ cart_btn.addEventListener('click', function(){
 })
 checklist_btn.addEventListener('click', function(){
     if(checklist){
-        checklist_con.style.marginTop = "0";
+        checklist_con.style.marginTop = "-120px";
         checklist = false;
     }else{
-        checklist_con.style.marginTop = "-120px";
+        checklist_con.style.marginTop = "0px";
         checklist = true;
     }
 })
+

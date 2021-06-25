@@ -12,6 +12,7 @@ firebase.initializeApp(firebaseConfig);
 
 var result = [];
 var categories = [];
+var food_id = [];
 var categoriesCon = document.getElementById('menu-categories-con');
 var displayCon = document.getElementById('menu-display-con');
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
             firebase.firestore().collection("user").doc(element.data().user_id).collection('menu').get()
             .then((doc)=>{
                 doc.forEach((element)=>{
+                    food_id.push(element.id);
                     result.push(element.data());
                 })
                 alterData();
@@ -46,7 +48,7 @@ function alterData(){
     })
     categories = uniq(categories);
     putCategories(categories);
-    putDisplay(categories, result);
+    putDisplay(categories, result, food_id);
 }
 
 function putCategories(categories){
@@ -60,7 +62,7 @@ function putCategories(categories){
     categoriesCon.innerHTML = htmlCategories;
     displayCon.innerHTML = htmlDisplay;
 }
-function putDisplay(categories, display){
+function putDisplay(categories, display, food){
     for(var i = 0; i < categories.length; i++){
         var con = document.getElementById(categories[i] + "_con");
         let html = "";
@@ -72,7 +74,7 @@ function putDisplay(categories, display){
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button>Add to cart</button>
+                            <button class="add-btn" id="${food[k]}">Add to cart</button>
                             <div class="discount-logo">
                                 <i class="fas fa-tags"></i>
                                 RM 2 OFF
@@ -87,7 +89,7 @@ function putDisplay(categories, display){
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button>Add to cart</button>
+                            <button class="add-btn" id="${food[k]}">Add to cart</button>
                         </div>`;
                 }
             }
