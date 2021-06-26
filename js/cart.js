@@ -25,11 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     if(restaurantID !== null){
         checkin.style.color = "#23F426";
-        document.getElementById('menu-display-con').addEventListener("click", function(e){
-            if(e.target.className === "add-btn"){
-                console.log(e.target.id);
-            }
-        })
+        
     }else{
         checkin.style.color = "#080808";
     }

@@ -13,8 +13,13 @@ firebase.initializeApp(firebaseConfig);
 var result = [];
 var categories = [];
 var food_id = [];
+var cart = [];
 var categoriesCon = document.getElementById('menu-categories-con');
 var displayCon = document.getElementById('menu-display-con');
+var cartQuan = document.getElementById('cart_count');
+var sideCartDisplay = document.getElementById('side-cart-display');
+
+checkCartSize();
 
 document.getElementById('categories-go-back').addEventListener('click', function(){
     //window.open('/', "_self");
@@ -41,6 +46,76 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     })
 })
+
+document.getElementById('menu-display-con').addEventListener("click", function(e){
+    if(e.target.className === "add-btn"){
+        var obj = {
+            food_id: e.target.dataset.id,
+            food_image: result[e.target.dataset.index].food_image,
+            food_name: result[e.target.dataset.index].food_name,
+            food_price: result[e.target.dataset.index].food_price,
+            food_discount: result[e.target.dataset.index].food_discount,
+            food_avaiable: result[e.target.dataset.index].food_available,
+            quantity: 1,
+            index: e.target.dataset.index
+        };
+        addToCart(obj);
+        checkCartSize();
+        cartCount();
+        displayCart();
+    }
+})
+
+function addToCart(data){
+    if(data.food_discount === "yes"){
+        data.food_price = parseFloat(data.food_price) - 2;
+    }
+    if(cart.length === 0){
+        cart.push(data);
+        return;
+    }
+    for(var i = 0; i < cart.length; i++){
+        if(data.food_id === cart[i].food_id){
+            if(data.food_discount === "yes"){
+                cart[i].food_price = Number(parseFloat(cart[i].food_price) + parseFloat(result[data.index].food_price) - 2).toFixed(2);
+            }else{
+                cart[i].food_price = Number(parseFloat(cart[i].food_price) + parseFloat(result[data.index].food_price)).toFixed(2);
+            }
+            cart[i].quantity += 1;
+            return;
+        }
+    }
+    cart.push(data);
+}
+
+function checkCartSize(){
+    if(cart.length === 0){
+        document.getElementById('side-add').style.color = "#080808";
+    }else{
+        document.getElementById('side-add').style.color = "#23F426";
+    }
+}
+
+function cartCount(){
+    var count = 0;
+    for(var i = 0; i < cart.length; i++){
+        count += cart[i].quantity;
+    }
+    cartQuan.innerHTML = count;
+}
+
+function displayCart(){
+    var html = "";
+    for(var i = 0; i < cart.length; i++){
+        html += `<tr>
+                    <td><img src="${cart[i].food_image}" alt="" srcset=""></td>
+                    <td>${cart[i].food_name}</td>
+                    <td>${cart[i].quantity}</td>
+                    <td>${cart[i].food_price}</td>
+                </tr>`
+    }
+    sideCartDisplay.innerHTML = html;
+}
 
 function alterData(){
     result.forEach((data)=>{
@@ -74,23 +149,30 @@ function putDisplay(categories, display, food){
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button class="add-btn" id="${food[k]}">Add to cart</button>
+                            <button class="add-btn" id="${food[k]}" data-index="${k}">Add to cart</button>
                             <div class="discount-logo">
                                 <i class="fas fa-tags"></i>
                                 RM 2 OFF
                             </div>
                             <div class="discount-price">
-                                <div></div>
                                 <p>$${disPrice}</p>
                             </div>
-                        </div>`;
+                        `;
                 }else{
                     html += `<div class="menu-display-div">
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button class="add-btn" id="${food[k]}">Add to cart</button>
-                        </div>`;
+                            <button class="add-btn" data-id="${food[k]}" data-index="${k}">Add to cart</button>
+                        `;
+                }
+                if(display[k].food_available === "no"){
+                    html += `<div class="not-available">
+                                Not Available
+                            </div>
+                            </div>`;
+                }else{
+                    html += `</div>`;
                 }
             }
         }

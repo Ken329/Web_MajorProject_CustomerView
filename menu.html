@@ -19,7 +19,7 @@
                 <i class="fas fa-2x fa-table"></i>
             </div>
             <div>
-                <p class="cart-con-p">0</p>
+                <p id="cart_count" class="cart-con-p">0</p>
                 <i id="cart_btn" class="fas fa-2x fa-shopping-cart"></i>
             </div>
         </div>
@@ -42,16 +42,19 @@
                         <th>Price</th>
                     </tr>
                 </thead>
-                <thead>
+                <thead id="side-cart-display">
                     <tr>
-                        <td>helo</td>
+                        <td colspan="4">Empty Cart</td>
+                    </tr>
+                    <!-- <tr>
+                        <td><img src="img/background1.jpg" alt="" srcset=""></td>
                         <td>Foods dasd a da d</td>
                         <td>Quantity</td>
                         <td>Price</td>
-                    </tr>
+                    </tr> -->
                 </thead>
             </table>
-            <button>Pay To Checkout</button>
+            <!-- <button>Pay To Checkout</button> -->
         </div>
     </div>
     <div id="categories-go-back" class="categories-back-div menu-go-back">
@@ -83,7 +86,6 @@
                         <p>RM 14.99</p>
                     </div>
                 </div>
-                
             </div>
             <h3>Chicken</h3>
             <div class="display-con-div">
