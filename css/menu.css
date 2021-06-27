@@ -83,9 +83,15 @@ body{
     border-top-right-radius: 20px;
 }
 .menu-display-div h4, .menu-display-div p{
-    width: 80%;
+    width: 100%;
     height: 30px;
-    margin: 15px;
+    margin: 15px 0;
+    padding: 5px;
+}
+.btn-con{
+    width: 100%;
+    height: fit-content;
+    text-align: center;
 }
 .menu-display-div button{
     width: 80%;
@@ -96,6 +102,18 @@ body{
     outline: none;
     cursor: pointer;
     border-radius: 10px;
+}
+#add-cart:active{
+    animation: txt1 2s ease-in-out forwards;
+}
+@keyframes txt1 {
+    0% {
+        width: 60%;
+    }
+    50%,
+    100% {
+        width: 80%;
+    }
 }
 .discount-logo{
     top: 5px;
@@ -113,12 +131,18 @@ body{
 .discount-logo i{
     margin: 0 2px;
 }
-.discount-price{
+.discount-div{
+    position: absolute;
+    top: 227px;
+    width: 80px;
+    height: 30px;
+    border-top: 2px solid black;
+}
+.discount-p{
     position: absolute;
     top: 221px;
-    left: 10px;
-    height: 40px;
-    border-top: 2px solid black;
+    width: 30%;
+    height: 30px;
 }
 .not-available{
     width: 100%;
@@ -154,8 +178,14 @@ body{
         width: 190px;
         margin: 10px 18px;
     }
-    .menu-display-div h5, .menu-display-div p{
+    .menu-display-div h5{
         margin: 12px;
+    }
+    .menu-display-div p{
+        margin: 13px;
+    }
+    .categories-back-div{
+        padding: 20px 0 20px 20px;
     }
     .menu-display-div button{
         margin: 10px 18px;
@@ -172,9 +202,6 @@ body{
     .menu-display-div{
         width: 180px;
         margin: 10px 16px;
-    }
-    .menu-display-div h5, .menu-display-div p{
-        margin: 10px;
     }
     .menu-display-div button{
         margin: 10px 16px;
@@ -202,8 +229,8 @@ body{
         margin: 10px 13px;
         font-size: 15px;
     }
-    .menu-display-div h5, .menu-display-div p{
-        margin: 8px;
+    .menu-display-div h4, .menu-display-div p{
+        margin: 15px 5px;
     }
     .menu-display-div button{
         margin: 8px 14px;
@@ -269,6 +296,15 @@ body{
     .discount-logo{
         font-size: 11px;
     }
+    @keyframes txt1 {
+        0% {
+            width: 70%;
+        }
+        50%,
+        100% {
+            width: 80%;
+        }
+    }
 }
 @media screen and (max-width: 500px){
     .menu-con{
@@ -292,6 +328,9 @@ body{
         margin: 5px 3px;
         font-size: 12px;
     }
+    .menu-display-div h4, .menu-display-div p{
+        margin: 15px 3px;
+    }
     .menu-display-div button{
         margin: 8px;
         padding: 4px;
@@ -299,12 +338,8 @@ body{
     .discount-logo{
         font-size: 10px;
     }
-    .discount-price{
-        position: absolute;
-        top: 219px;
-        left: 10px;
-    }
-    .discount-price div{
-        width: 70px;
+    .discount-div{
+        top: 222px;
+        width: 60px;
     }
 }

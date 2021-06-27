@@ -286,7 +286,8 @@ body::-webkit-scrollbar {
 /* Categories go back */
 .categories-back-div{
     display: flex;
-    padding: 20px 120px;
+    padding: 20px 0 20px 120px;
+    width: fit-content;
 }
 .categories-back-div i, .categories-back-div p{
     margin: 0 10px;
@@ -429,7 +430,7 @@ body::-webkit-scrollbar {
         width: 240px;
     }
     .categories-back-div{
-        padding: 20px 60px;
+        padding: 20px 0 20px 20px;
     }
 }
 @media screen and (max-width: 550px){

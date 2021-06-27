@@ -149,21 +149,24 @@ function putDisplay(categories, display, food){
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button class="add-btn" id="${food[k]}" data-index="${k}">Add to cart</button>
+                            <div class="btn-con">
+                                <button id="add-cart" class="add-btn" data-id="${food[k]}" data-index="${k}">Add to cart</button>
+                            </div>
                             <div class="discount-logo">
                                 <i class="fas fa-tags"></i>
                                 RM 2 OFF
                             </div>
-                            <div class="discount-price">
-                                <p>$${disPrice}</p>
-                            </div>
+                            <div class="discount-div"></div>
+                            <p class="discount-p">$${disPrice}</p>
                         `;
                 }else{
                     html += `<div class="menu-display-div">
                             <img src="${display[k].food_image}" alt="" srcset="">
                             <h4>${display[k].food_name}</h4>
                             <p>$${display[k].food_price}</p>
-                            <button class="add-btn" data-id="${food[k]}" data-index="${k}">Add to cart</button>
+                            <div class="btn-con">
+                                <button id="add-cart" class="add-btn" data-id="${food[k]}" data-index="${k}">Add to cart</button>
+                            </div>
                         `;
                 }
                 if(display[k].food_available === "no"){
