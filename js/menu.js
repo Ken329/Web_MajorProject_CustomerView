@@ -22,8 +22,8 @@ var sideCartDisplay = document.getElementById('side-cart-display');
 checkCartSize();
 
 document.getElementById('categories-go-back').addEventListener('click', function(){
-    //window.open('/', "_self");
-    window.open('/Web_MajorProject_CustomerView/', "_self");
+    window.open('/', "_self");
+    //window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -107,12 +107,16 @@ function cartCount(){
 function displayCart(){
     var html = "";
     for(var i = 0; i < cart.length; i++){
-        html += `<tr>
-                    <td><img src="${cart[i].food_image}" alt="" srcset=""></td>
-                    <td>${cart[i].food_name}</td>
-                    <td>${cart[i].quantity}</td>
-                    <td>${cart[i].food_price}</td>
-                </tr>`
+        html += `<div class="content-div">
+                    <img src="${cart[i].food_image}" alt="">
+                    <div class="content-div-detail">
+                        <input type="text" value="${cart[i].food_name}">
+                        <div class="detail-div">
+                            <div><div class="detail-btn">-</div><span>${cart[i].quantity}</span><div class="detail-btn">+</div></div>
+                            <p>${cart[i].food_price}</p>
+                        </div>
+                    </div>
+                </div>`
     }
     sideCartDisplay.innerHTML = html;
 }

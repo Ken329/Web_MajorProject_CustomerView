@@ -37,13 +37,13 @@ cuisineCon.addEventListener('click', function(e){
     }
 })
 trenRestaurantAll.addEventListener('click', function(e){
-    //window.open(`../categories.html?categories=All`, "_self");
-    window.open(`/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
+    window.open(`../categories.html?categories=All`, "_self");
+    //window.open(`/Web_MajorProject_CustomerView/categories.html?categories=All`, "_self");
 })
 trenRestaurantCon.addEventListener('click', function(e){
     if(e.target.className === "click-me"){
-        //window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
-        window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
+        window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
+        //window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
     }
 })
 

@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 home.addEventListener('click', function(){
-    //window.open('/', "_self");
-    window.open('/Web_MajorProject_CustomerView/', "_self");
+    window.open('/', "_self");
+    //window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 
 cart_btn.addEventListener('click', function(){
@@ -41,7 +41,7 @@ cart_btn.addEventListener('click', function(){
         cart_con.style.right = "0";
         check = false;
     }else{
-        cart_con.style.right = "-400px";
+        cart_con.style.right = "-420px";
         check = true;
     }
 })
