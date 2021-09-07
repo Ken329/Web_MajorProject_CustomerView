@@ -11,14 +11,23 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+// localhost server
+// document.getElementById('categories-go-back').addEventListener('click', function(){
+//     window.open('/', "_self");
+// })
+// document.getElementById("categories-restaurant-con").addEventListener('click', function(e){
+//     if(e.target.className === "click-me"){
+//         window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
+//     }
+// })
+
+// github server
 document.getElementById('categories-go-back').addEventListener('click', function(){
-    window.open('/', "_self");
-    //window.open('/Web_MajorProject_CustomerView/', "_self");
+    window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 document.getElementById("categories-restaurant-con").addEventListener('click', function(e){
     if(e.target.className === "click-me"){
-        window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
-        //window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
+        window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
     }
 })
 

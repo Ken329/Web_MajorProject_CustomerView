@@ -30,10 +30,14 @@ document.addEventListener("DOMContentLoaded", function(){
         checkin.style.color = "#080808";
     }
 })
+// localhost server
+// home.addEventListener('click', function(){
+//     window.open('/', "_self");
+// })
 
+// github sever
 home.addEventListener('click', function(){
-    window.open('/', "_self");
-    //window.open('/Web_MajorProject_CustomerView/', "_self");
+    window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 
 cart_btn.addEventListener('click', function(){

@@ -20,10 +20,14 @@ var cartQuan = document.getElementById('cart_count');
 var sideCartDisplay = document.getElementById('side-cart-display');
 
 checkCartSize();
+// ocalhost server
+// document.getElementById('categories-go-back').addEventListener('click', function(){
+//     window.open('/', "_self");
+// })
 
+// github server
 document.getElementById('categories-go-back').addEventListener('click', function(){
-    window.open('/', "_self");
-    //window.open('/Web_MajorProject_CustomerView/', "_self");
+    window.open('/Web_MajorProject_CustomerView/', "_self");
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -65,6 +69,39 @@ document.getElementById('menu-display-con').addEventListener("click", function(e
         displayCart();
     }
 })
+sideCartDisplay.addEventListener('click', (e) => {
+    if(e.target.className === "detail-btn plus"){
+        for(var i = 0; i < cart.length; i++){
+            if(e.target.dataset.id === cart[i].food_id){
+                var total = parseFloat(e.target.dataset.price) / parseFloat(e.target.dataset.quantity);
+                cart[i].food_price = Number(parseFloat(cart[i].food_price) + total).toFixed(2);
+                cart[i].quantity += 1;
+                document.getElementById("cart_quantity"+e.target.dataset.id).innerHTML = cart[i].quantity;
+                document.getElementById("cart_price"+e.target.dataset.id).innerHTML = cart[i].food_price;
+                cartCount();
+                return;
+            }
+        }
+    }
+    if(e.target.className === "detail-btn minus"){
+        for(var i = 0; i < cart.length; i++){
+            if(e.target.dataset.id === cart[i].food_id){
+                var total = parseFloat(e.target.dataset.price) / parseFloat(e.target.dataset.quantity);
+                cart[i].food_price = Number(parseFloat(cart[i].food_price) - total).toFixed(2);
+                cart[i].quantity -= 1;
+                if(cart[i].quantity === 0){
+                    cart.splice(i, i+1);
+                    document.getElementById("content_div"+e.target.dataset.id).style.display = 'none';
+                }else{
+                    document.getElementById("cart_quantity"+e.target.dataset.id).innerHTML = cart[i].quantity;
+                    document.getElementById("cart_price"+e.target.dataset.id).innerHTML = cart[i].food_price;
+                }
+                cartCount();
+                return;
+            }
+        }
+    }
+})  
 
 function addToCart(data){
     if(data.food_discount === "yes"){
@@ -107,20 +144,32 @@ function cartCount(){
 function displayCart(){
     var html = "";
     for(var i = 0; i < cart.length; i++){
-        html += `<div class="content-div">
-                    <img src="${cart[i].food_image}" alt="">
+        html += `<div id="content_div${cart[i].food_id}" class="content-div">
+                    <img src="${cart[i].food_image}" alt="${cart[i].food_name}">
                     <div class="content-div-detail">
-                        <input type="text" value="${cart[i].food_name}">
+                        <input disabled="true" type="text" value="${cart[i].food_name}">
                         <div class="detail-div">
-                            <div><div class="detail-btn">-</div><span>${cart[i].quantity}</span><div class="detail-btn">+</div></div>
-                            <p>${cart[i].food_price}</p>
+                            <div><div 
+                                class="detail-btn minus"
+                                data-id="${cart[i].food_id}"
+                                data-quantity="${cart[i].quantity}"
+                                data-price="${cart[i].food_price}">-</div>
+                                    <span id="cart_quantity${cart[i].food_id}">${cart[i].quantity}</span>
+                                <div 
+                                class="detail-btn plus"
+                                data-id="${cart[i].food_id}"
+                                data-quantity="${cart[i].quantity}"
+                                data-price="${cart[i].food_price}">+</div></div>
+                            <p id="cart_price${cart[i].food_id}">${cart[i].food_price}</p>
                         </div>
                     </div>
                 </div>`
     }
     sideCartDisplay.innerHTML = html;
 }
-
+function modifyingData(id){
+    console.log(id)
+}
 function alterData(){
     result.forEach((data)=>{
         categories.push(data.food_categories);

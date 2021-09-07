@@ -104,12 +104,12 @@ body::-webkit-scrollbar {
     padding: 5px;
 }
 .content-div img{
-    width: 80px;
+    width: 25%;
     height: 60px;
     border-radius: 5px;
 }
 .content-div-detail{
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
@@ -120,6 +120,7 @@ body::-webkit-scrollbar {
     font-size: large;
     max-width: 80%;
     margin-left: 5%;
+    background-color: transparent;
 }
 .content-div-detail .detail-div{
     display: flex;
@@ -150,18 +151,7 @@ body::-webkit-scrollbar {
 .content-div-detail .detail-div p{
     font-size: large;
 }
-/* .side-cart-div table{
-    width: 100%;
-}
-.side-cart-div table th, .side-cart-div table td{
-    padding: 10px;
-    text-align: center;  
-}
-.side-cart-div table td img{
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
-} */
+
 .side-cart-div button{
     width: 80%;
     margin: 30px 0;
@@ -384,10 +374,6 @@ body::-webkit-scrollbar {
     .cuisine-container{
         padding: 40px;
     }
-    .content-div img{
-        width: 50px;
-        height: 70px;
-    }
     .footer-container div{
         width: 280px;
     }
@@ -401,10 +387,6 @@ body::-webkit-scrollbar {
     }
     .side-cart-div button{
         padding: 14px 0;
-    }
-    .content-div img{
-        width: 45px;
-        height: 65px;
     }
     .content-div-detail input{
         font-size: medium;
