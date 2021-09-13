@@ -1,36 +1,3 @@
-// firebase verification
-var firebaseConfig = {
-    apiKey: "AIzaSyDygRZqNcr-77d6r80_4kDZwT-K_mRS6hU",
-    authDomain: "eatsy-d60ac.firebaseapp.com",
-    databaseURL: "https://eatsy-d60ac-default-rtdb.firebaseio.com",
-    projectId: "eatsy-d60ac",
-    storageBucket: "eatsy-d60ac.appspot.com",
-    messagingSenderId: "32542278845",
-    appId: "1:32542278845:web:ea6cefe70affab0e8463d4",
-    measurementId: "G-3QZNVWFP62"
-};
-firebase.initializeApp(firebaseConfig);
-
-// restaurant div
-var trenRestaurantCon = document.getElementById('trending-restaurant-con');
-var trenRestaurantSelect = document.getElementById('trending-restaurant-select');
-var trenRestaurantSearch = document.getElementById('trending-restaurant-search');
-var trenRestaurantAll = document.getElementById('trending-restaurant-all');
-
-//cuisine div
-var cuisineCon = document.getElementById('cuisine_con');
-
-var result = [];
-
-getData();
-
-trenRestaurantSelect.onchange = function(){
-    alterData(trenRestaurantSelect.value, "categories", result);
-}
-trenRestaurantSearch.oninput = function(){
-    alterData(trenRestaurantSearch.value, "search", result);
-}
-
 // localhost server
 // cuisineCon.addEventListener('click', function(e){
 //     if(e.target.className === "cuisine"){
@@ -45,6 +12,18 @@ trenRestaurantSearch.oninput = function(){
 //         window.open(`../menu.html?restaurantID=${e.target.id}`, "_self");
 //     }
 // })
+
+// restaurant div
+var trenRestaurantCon = document.getElementById('trending-restaurant-con');
+var trenRestaurantSelect = document.getElementById('trending-restaurant-select');
+var trenRestaurantSearch = document.getElementById('trending-restaurant-search');
+var trenRestaurantAll = document.getElementById('trending-restaurant-all');
+
+//cuisine div
+var cuisineCon = document.getElementById('cuisine_con');
+var result = [];
+
+getData();
 
 // github server
 cuisineCon.addEventListener('click', function(e){
@@ -61,16 +40,23 @@ trenRestaurantCon.addEventListener('click', function(e){
     }
 })
 
+// getting general data function
 function getData(){
-    firebase.firestore().collection('user').get()
-    .then(function(doc){
-        doc.forEach((element)=>{
-            result.push(element.data());
-        })
+    fetch("https://eatsy-0329.herokuapp.com/getAllMenuRestaurant", {
+        method: 'GET',
+        headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        var myData = data.data;
+        for(var i = 0; i < myData.length; i++){
+            result.push(myData[i]);
+        }
         putData(result);
     })
 }
 
+// selecting restaurant function
 function alterData(type, action, result){
     var newResult = [];
     if(action == "categories"){
@@ -90,6 +76,7 @@ function alterData(type, action, result){
     putData(newResult);
 }
 
+// searching restaurant function
 function putData(result){
     let html = "";
     if(result.length !== 0){
@@ -108,4 +95,11 @@ function putData(result){
         html += `<h4 class="restaurant-h4">No restaurant found</h4>`;
     }
     trenRestaurantCon.innerHTML = html;
+}
+
+trenRestaurantSelect.onchange = function(){
+    alterData(trenRestaurantSelect.value, "categories", result);
+}
+trenRestaurantSearch.oninput = function(){
+    alterData(trenRestaurantSearch.value, "search", result);
 }

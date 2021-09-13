@@ -12,6 +12,126 @@
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
+    <div id="checkout_con" class="checkout-con">
+        <div class="checkout-con-div">
+            <div class="cancel-checkout"><i onclick="closeCheckout()" class="fas fa-window-close"></i></div>
+            <div class="checkout-detail">
+                <div class="checkout-personal">
+                    <h4>Choose one option below: </h4>
+                    <fieldset
+                        onchange="updateCheckoutType()"
+                        id="checkout_type">
+                            <input type="radio" value="take_away" name="checkout_type" class="checkout-type">
+                            <label>Take Away</label>
+                            <input type="radio" value="dine_in" name="checkout_type" class="checkout-type">
+                            <label>Dine In</label>
+                    </fieldset>
+                    <h4>Choose one payment method below: </h4>
+                    <fieldset 
+                        onchange="updateCheckoutPayment()"
+                        id="checkout_payment">
+                            <input type="radio" value="online" name="checkout_payment" class="checkout-payment">
+                            <label>Online Payment</label>
+                            <input type="radio" value="cash" name="checkout_payment" class="checkout-payment">
+                            <label>Pay At Counter</label>
+                    </fieldset>
+                    <div class="checkout-personal-detail">
+                        <h4>Customer personal detail: </h4>
+                        <div id="take_away_con" class="personal-detail fade-in">
+                            <div>
+                                <label>Name: </label>
+                                <input class="take-away-input" type="text" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label>Phone Number: </label>
+                                <input class="take-away-input" type="text" placeholder="Enter your phone number" >
+                            </div>
+                            <div>
+                                <label>Email: </label>
+                                <input class="take-away-input" type="text" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div id="dine_in_con" class="personal-detail fade-in">
+                            <div>
+                                <label>Table No: </label>
+                                <input class="dine-in-input" id="dine_in_no" type="text" placeholder="Enter your table no">
+                            </div>
+                            <div>
+                                <label>Name: </label>
+                                <input class="dine-in-input" type="text" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label>Phone Number: </label>
+                                <input class="dine-in-input" type="text" placeholder="Enter your phone number" >
+                            </div>
+                            <div>
+                                <label>Email: </label>
+                                <input class="dine-in-input" type="text" placeholder="Enter your email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-personal-detail">
+                        <h4>Customer payment method: </h4>
+                        <div id="online_con" class="personal-payment fade-in">
+                            <div   
+                                onclick="updatePaymentClickFunction('visa')"
+                                id="visa_div"
+                                class="payment-div">
+                                    <i class="fab fa-2x fa-cc-visa"></i>
+                                    <p>Online payment</p>
+                            </div>
+                            <div   
+                                onclick="updatePaymentClickFunction('paypal')"
+                                id="paypal_div"
+                                class="payment-div">
+                                    <i class="fab fa-2x fa-paypal"></i>
+                                    <p>Paypal</p>
+                            </div>
+                            <div   
+                                onclick="updatePaymentClickFunction('apple')"
+                                id="apple_div"
+                                class="payment-div">
+                                    <i class="fab fa-2x fa-apple-pay"></i>
+                                    <p>Apple Pay</p>
+                            </div>
+                            <div   
+                                onclick="updatePaymentClickFunction('ali')"
+                                id="ali_div"
+                                class="payment-div">
+                                    <i class="fab fa-2x fa-alipay"></i>
+                                    <p>AliPay</p>
+                            </div>
+                        </div>
+                        <div id="cash_con" class="personal-payment fade-in">
+                            <div>
+                                <i class="fas fa-2x fa-qrcode"></i>
+                                <p>Show your qr code to counter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="checkout_menu" class="checkout-menu">
+                    <!-- <h4>Your order</h4>
+                    <div class="checkout-menu-div">
+                        <img src="img/logo.jpeg" alt="" srcset="">
+                        <div class="checkout-menu-detail">
+                            <p>Burger</p>
+                            <div class="menu-detail-div">
+                                <p>Quantity: 1</p>
+                                <p>12.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-menu-total">
+                        <p>Total Price: RM12.00</p>
+                        <p>SST: RM12.00</p>
+                        <p>Total Price + SST: RM12.00</p>
+                    </div>
+                    <button>Proceed to transaction</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header-main-con menu-header-con">
         <div id="home-btn" class="img-con"><img src="img/logo.jpeg" alt="" srcset=""></div>
         <div class="cart-con">
@@ -46,7 +166,6 @@
                     </div>
                 </div> -->
             </div>
-            <!-- <button>Pay To Checkout</button> -->
         </div>
     </div>
     <div id="categories-go-back" class="categories-back-div menu-go-back">
@@ -90,7 +209,6 @@
             </div> -->
         </div>
     </div>
-    
     <footer class="footer-container menu-footer">
         <div>
             <p>Eatsy © 2021</p>
@@ -111,6 +229,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/menu.js"></script>
 </body>

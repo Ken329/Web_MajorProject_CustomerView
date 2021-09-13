@@ -3,6 +3,217 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 }
+.fade-in {
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 10s;
+    -moz-animation: fadeIn ease 10s;
+    -o-animation: fadeIn ease 10s;
+    -ms-animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+@-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+} 
+@-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+@-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+@-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+/* checkout container */
+.checkout-con{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 200;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.checkout-con .checkout-con-div{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: fixed;
+}
+.checkout-con .checkout-con-div::-webkit-scrollbar{
+    display: none;
+}
+.checkout-con .checkout-con-div .cancel-checkout{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 5px;
+}
+.checkout-con .checkout-con-div .cancel-checkout i{
+    cursor: pointer;
+    color: black;
+}
+.checkout-detail{
+    width: 800px;
+    height: fit-content;
+    display: flex;
+}
+/*  checkout container personal section */
+.checkout-personal{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.checkout-personal h4{
+    width: fit-content;
+    padding: 4px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+}
+.checkout-personal fieldset{
+    display: flex;
+    align-items: center;
+    border: none;
+}
+.checkout-personal fieldset input{
+    margin-left: 10px;
+}
+.checkout-personal fieldset label{
+    margin: 0 5px;
+}
+.checkout-personal-detail{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.checkout-personal-detail .personal-detail{
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+}
+.checkout-personal-detail .personal-detail div{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 0 10px;
+}
+.checkout-personal-detail .personal-detail div input{
+    padding: 5px;
+    border-radius: 10px;
+    margin: 3px 0;
+    border: 2px solid black;
+    outline: none;
+}
+.checkout-personal-detail .personal-payment{
+    display: none;
+    flex-wrap: wrap;
+}
+.checkout-personal-detail .personal-payment div{
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.checkout-personal-detail .personal-payment div p{
+    text-align: center;
+}
+/*  checkout container menu section */
+.checkout-menu{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.checkout-menu h4{
+    font-size: 20px;
+}
+.checkout-menu .checkout-menu-div{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    align-items: center;
+}
+.checkout-menu .checkout-menu-div img{
+    width: 25%;
+    height: 70px;
+    border-radius: 10px;
+}
+.checkout-menu .checkout-menu-div .checkout-menu-detail{
+    width: 75%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.checkout-menu .checkout-menu-div .checkout-menu-detail p{
+    margin: 5px;
+}
+.checkout-menu .checkout-menu-div .menu-detail-div{
+    display: flex;
+}
+.checkout-menu .checkout-menu-div .menu-detail-div p{
+    width: 50%;
+}
+.checkout-menu-total{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0 20px 5px;
+}
+.checkout-menu-total p{
+    margin-top: 5px;
+}
+.checkout-con .checkout-menu button{
+    width: 60%;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: white;
+    outline: none;
+    border: none;
+    margin: 0 auto;
+    box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+/* cart section */
 .cart-con{
     display: flex;
     justify-content: flex-end;
@@ -187,6 +398,24 @@ body{
         margin: 10px 18px;
         padding: 5px;
     }
+
+    /* checkout section */
+    .checkout-detail{
+        width: 500px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+    .checkout-detail .personal-detail div{
+        width: 100%;
+    }
+    .checkout-detail .checkout-menu{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .checkout-detail .checkout-menu h4{
+        font-size: 18px;
+    }
 }
 @media screen and (max-width: 800px){
     .menu-con{
@@ -232,6 +461,28 @@ body{
         margin: 8px 14px;
         padding: 4px;
     }
+
+    /* checkout section */
+    .checkout-detail{
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .checkout-detail .checkout-personal,
+    .checkout-detail .checkout-personal-detail,
+    .checkout-detail .personal-detail{
+        width: 100%;
+        align-items: center;
+    }
+    .checkout-personal-detail .personal-payment{
+        width: 100%;
+        justify-content: center;
+    }
+    .checkout-detail .checkout-menu h4{
+        font-size: 16px;
+    }
 }
 @media screen and (max-width: 600px){
     .menu-con{
@@ -261,6 +512,15 @@ body{
     }
     .discount-logo{
         font-size: 12px;
+    }
+
+    /* checkout section */
+    .checkout-detail{
+        width: 300px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 @media screen and (max-width: 550px){
@@ -301,6 +561,15 @@ body{
             width: 80%;
         }
     }
+
+    /* checkout section */
+    .checkout-detail{
+        width: 280px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 @media screen and (max-width: 500px){
     .menu-con{
@@ -337,5 +606,14 @@ body{
     .discount-div{
         top: 222px;
         width: 60px;
+    }
+
+    /* checkout section */
+    .checkout-detail{
+        width: 260px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
