@@ -1,3 +1,13 @@
+// restaurant div
+var trenRestaurantCon = document.getElementById('trending-restaurant-con');
+var trenRestaurantSelect = document.getElementById('trending-restaurant-select');
+var trenRestaurantSearch = document.getElementById('trending-restaurant-search');
+var trenRestaurantAll = document.getElementById('trending-restaurant-all');
+
+//cuisine div
+var cuisineCon = document.getElementById('cuisine_con');
+var result = [];
+
 // localhost server
 // cuisineCon.addEventListener('click', function(e){
 //     if(e.target.className === "cuisine"){
@@ -13,18 +23,6 @@
 //     }
 // })
 
-// restaurant div
-var trenRestaurantCon = document.getElementById('trending-restaurant-con');
-var trenRestaurantSelect = document.getElementById('trending-restaurant-select');
-var trenRestaurantSearch = document.getElementById('trending-restaurant-search');
-var trenRestaurantAll = document.getElementById('trending-restaurant-all');
-
-//cuisine div
-var cuisineCon = document.getElementById('cuisine_con');
-var result = [];
-
-getData();
-
 // github server
 cuisineCon.addEventListener('click', function(e){
     if(e.target.className === "cuisine"){
@@ -39,6 +37,8 @@ trenRestaurantCon.addEventListener('click', function(e){
         window.open(`/Web_MajorProject_CustomerView/menu.html?restaurantID=${e.target.id}`, "_self");
     }
 })
+
+getData();
 
 // getting general data function
 function getData(){
