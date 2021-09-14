@@ -1,13 +1,3 @@
-// localhost server
-// home.addEventListener('click', function(){
-//     window.open('/', "_self");
-// })
-
-// github sever
-home.addEventListener('click', function(){
-    window.open('/Web_MajorProject_CustomerView/', "_self");
-})
-
 // cart function
 var home = document.getElementById('home-btn')
 
@@ -27,6 +17,16 @@ var done = document.getElementById('side-done');
 
 var check = true;
 var checklist = true;
+
+// localhost server
+// home.addEventListener('click', function(){
+//     window.open('/', "_self");
+// })
+
+// github sever
+home.addEventListener('click', function(){
+    window.open('/Web_MajorProject_CustomerView/', "_self");
+})
 
 document.addEventListener("DOMContentLoaded", function(){
     const queryString = window.location.search;
