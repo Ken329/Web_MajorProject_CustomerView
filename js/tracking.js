@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const restaurantID = urlParams.get('restaurantID');
     const orderID = urlParams.get('orderID');
 
-    fetch('http://localhost:4000/trackOrderWithId', {
+    fetch('https://eatsy-0329.herokuapp.com/trackOrderWithId', {
         method: "POST",
         headers: { 'Content-type': 'application/x-www-form-urlencoded' },
         body: `restaurantId=${restaurantID}&orderId=${orderID}`
@@ -110,7 +110,7 @@ function getStatusMenu(food){
         foodListId.push(foodList[i].id)
     }
 
-    fetch('http://localhost:4000/trackingFoodWithId', {
+    fetch('https://eatsy-0329.herokuapp.com/trackingFoodWithId', {
         method: "POST",
         headers: { 'Content-type': 'application/x-www-form-urlencoded' },
         body: `restaurantId=${restaurantID}&foodId=${foodListId}`

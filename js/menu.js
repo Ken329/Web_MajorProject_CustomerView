@@ -246,7 +246,7 @@ function proceedToCheckout(){
                             var total = totalAmount(cart);
                             var myTotal = parseFloat(total) + parseFloat(total * 0.06);
                             
-                            fetch("http://localhost:4000/cashInRestaurant", {
+                            fetch("https://eatsy-0329.herokuapp.com/cashInRestaurant", {
                                 method: "POST",
                                 body: `id=${restaurantID}&amount=${myTotal.toFixed(2)}`,
                                 headers: { 'Content-type': 'application/x-www-form-urlencoded' }
@@ -258,7 +258,7 @@ function proceedToCheckout(){
                                     var today = new Date();
                                     var id = uniqueId();
                                     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                                    fetch('http://localhost:4000/takeAwayFromRestaurant', {
+                                    fetch('https://eatsy-0329.herokuapp.com/takeAwayFromRestaurant', {
                                         method: "POST",
                                         body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[0]}&phone=${data[1]}&email=${data[2]}&type=take away&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
@@ -273,8 +273,8 @@ function proceedToCheckout(){
                                             From : "ken_037729@hotmail.com",
                                             Subject : "Order Confirmation From Eatsy Services",
                                             Body : `Dear ${data[0]}, your order has been recieved by the restaurant, you may check your order status
-                                            with this link. If any information is incorrect, kindly update with the 
-                                            stuff over there`
+                                            with this link https://ken329.github.io/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}. 
+                                            If any information is incorrect, kindly update with the stuff over there`
                                         })
                                         .then( () => 
                                             window.open(`/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
@@ -309,7 +309,7 @@ function proceedToCheckout(){
                             const restaurantID = urlParams.get('restaurantID');
                             var total = totalAmount(cart);
                             var myTotal = parseFloat(total) + parseFloat(total * 0.06);
-                            fetch("http://localhost:4000/cashInRestaurant", {
+                            fetch("https://eatsy-0329.herokuapp.com/cashInRestaurant", {
                                 method: "POST",
                                 body: `id=${restaurantID}&amount=${myTotal.toFixed(2)}`,
                                 headers: { 'Content-type': 'application/x-www-form-urlencoded' }
@@ -321,7 +321,7 @@ function proceedToCheckout(){
                                     var today = new Date();
                                     var id = uniqueId();
                                     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                                    fetch('http://localhost:4000/dineInFromRestaurant', {
+                                    fetch('https://eatsy-0329.herokuapp.com/dineInFromRestaurant', {
                                         method: "POST",
                                         body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[1]}&table_no=${data[0]}&phone=${data[2]}&email=${data[3]}&type=dine in&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
@@ -336,8 +336,8 @@ function proceedToCheckout(){
                                             From : "ken_037729@hotmail.com",
                                             Subject : "Order Confirmation From Eatsy Services",
                                             Body : `Dear ${data[1]}, your order has been recieved by the restaurant, you may check your order status
-                                            with this link and your table no ${data[0]}. If any information is incorrect, kindly update with the 
-                                            stuff over there`
+                                            with this link https://ken329.github.io/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id} and your table no ${data[0]}. 
+                                            If any information is incorrect, kindly update with the stuff over there.`
                                         })
                                         .then( () => 
                                             window.open(`/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
