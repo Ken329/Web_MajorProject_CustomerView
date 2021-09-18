@@ -1,0 +1,150 @@
+.header-main-con{
+    background-image: url(../img/background1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.tracking-con{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+.tracking-order{
+    padding: 0px 200px 0 0;
+    height: 100%;
+}
+.tracking-order h4{
+    margin: 20px;
+}
+.tracking-order p{
+    margin-top: 10px;
+}
+.tracking-order .tracking-order-div{
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.tracking-order .tracking-order-div .order-div{
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px 0px 9px -3px rgba(97, 85, 85, 0.75);
+    display: flex;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.tracking-order .tracking-order-div .order-div img{
+    width: 30%;
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.tracking-order .tracking-order-div .order-div .order-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.tracking-order .tracking-order-div .order-div .order-detail h5{
+    margin: 3px 5px;
+}
+.tracking-order .tracking-order-div .order-div .order-detail div{
+    display: flex;
+}
+.tracking-order .tracking-order-div .order-div .order-detail div p{
+    margin: 3px 5px;
+}
+.tracking-status{
+    margin: 30px 0;
+    display: flex;
+}
+.tracking-level{
+    position: relative;
+    width: 20px;
+    height: 365px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.75);
+    background: -webkit-linear-gradient(top, #62FD7F 10%, #F1F1F1 10%);
+}
+.tracking-level div{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: -13px;
+    box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.75);
+    background-color: white;
+    border-radius: 25px;
+    
+}
+.tracking-level-dot:nth-child(1){
+    margin-top: 20px;
+}
+.tracking-level-dot:nth-child(2){
+    margin-top: 90px;
+}
+.tracking-level-dot:nth-child(3){
+    margin-top: 160px;
+}
+.tracking-level-dot:nth-child(4){
+    margin-top: 230px;
+}
+.tracking-level-dot:nth-child(5){
+    margin-top: 300px;
+}
+.tracking-detail{
+    padding: 0px 50px;
+    height: 365px;
+}
+.tracking-detail p{
+    margin-top: 31px;
+    height: 40px;
+}
+
+@media screen and (max-width: 900px){
+    .tracking-con{
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+    .tracking-order{
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+    }
+    .tracking-order .tracking-order-div{
+        max-height: fit-content;
+        overflow: none;
+    }
+    .tracking-status{
+        width: 100%;
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 550px){
+    .tracking-level div{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    .tracking-status{
+        padding: 20px 30px;
+    }
+}
+@media screen and (max-width: 470px){
+    .tracking-level div{
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+    }
+    .tracking-detail p{
+        height: 39px;
+        margin-top: 30px;
+    }
+}

@@ -240,20 +240,48 @@ function proceedToCheckout(){
                         if(paymentMethod === ""){
                             alert("Please select one payment method before proceed to checkout")
                         }else{
-                            Email.send({
-                                Host : "smtp.elasticemail.com",
-                                Username : "ken_037729@hotmail.com",
-                                Password : "072F65389C8D6C6019BC661B5AC8A2089A18",
-                                To : data[3],
-                                From : "ken_037729@hotmail.com",
-                                Subject : "Order Confirmation From Eatsy Services",
-                                Body : `Dear ${data[1]}, your order has been recieved by the restaurant, you may check your order status
-                                 with this link and your table no is ${data[0]}. If any information is incorrect, kindly update with the 
-                                 stuff over there`
-                            }).then(
-                                message => alert(message)
-                            );
-                            console.log(paymentMethod)
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
+                            const restaurantID = urlParams.get('restaurantID');
+                            var total = totalAmount(cart);
+                            var myTotal = parseFloat(total) + parseFloat(total * 0.06);
+                            
+                            fetch("http://localhost:4000/cashInRestaurant", {
+                                method: "POST",
+                                body: `id=${restaurantID}&amount=${myTotal.toFixed(2)}`,
+                                headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                            })
+                            .then((res) => res.json())
+                            .then((myRes) => {
+                                if(myRes.data){
+                                    var newCart = updateNewCart(cart);
+                                    var today = new Date();
+                                    var id = uniqueId();
+                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                                    fetch('http://localhost:4000/takeAwayFromRestaurant', {
+                                        method: "POST",
+                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[0]}&phone=${data[1]}&email=${data[2]}&type=take away&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
+                                        headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                                    })
+                                    .then((res) => res.json())
+                                    .then((resData) => {
+                                        Email.send({
+                                            Host : "smtp.elasticemail.com",
+                                            Username : "ken_037729@hotmail.com",
+                                            Password : "072F65389C8D6C6019BC661B5AC8A2089A18",
+                                            To : data[2],
+                                            From : "ken_037729@hotmail.com",
+                                            Subject : "Order Confirmation From Eatsy Services",
+                                            Body : `Dear ${data[0]}, your order has been recieved by the restaurant, you may check your order status
+                                            with this link. If any information is incorrect, kindly update with the 
+                                            stuff over there`
+                                        })
+                                        .then( () => 
+                                            window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                        );
+                                    })
+                                }
+                            })
                         }
                     }
                 }else{
@@ -275,20 +303,47 @@ function proceedToCheckout(){
                         if(paymentMethod === ""){
                             alert("Please select one payment method before proceed to checkout")
                         }else{
-                            Email.send({
-                                Host : "smtp.elasticemail.com",
-                                Username : "ken_037729@hotmail.com",
-                                Password : "072F65389C8D6C6019BC661B5AC8A2089A18",
-                                To : data[3],
-                                From : "ken_037729@hotmail.com",
-                                Subject : "Order Confirmation From Eatsy Services",
-                                Body : `Dear ${data[1]}, your order has been recieved by the restaurant, you may check your order status
-                                 with this link and your table no is ${data[0]}. If any information is incorrect, kindly update with the 
-                                 stuff over there`
-                            }).then(
-                                message => alert(message)
-                            );
-                            console.log(paymentMethod)
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
+                            const restaurantID = urlParams.get('restaurantID');
+                            var total = totalAmount(cart);
+                            var myTotal = parseFloat(total) + parseFloat(total * 0.06);
+                            fetch("http://localhost:4000/cashInRestaurant", {
+                                method: "POST",
+                                body: `id=${restaurantID}&amount=${myTotal.toFixed(2)}`,
+                                headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                            })
+                            .then((res) => res.json())
+                            .then((myRes) => {
+                                if(myRes.data){
+                                    var newCart = updateNewCart(cart);
+                                    var today = new Date();
+                                    var id = uniqueId();
+                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                                    fetch('http://localhost:4000/dineInFromRestaurant', {
+                                        method: "POST",
+                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[1]}&table_no=${data[0]}&phone=${data[2]}&email=${data[3]}&type=dine in&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
+                                        headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                                    })
+                                    .then((res) => res.json())
+                                    .then((resData) => {
+                                        Email.send({
+                                            Host : "smtp.elasticemail.com",
+                                            Username : "ken_037729@hotmail.com",
+                                            Password : "072F65389C8D6C6019BC661B5AC8A2089A18",
+                                            To : data[2],
+                                            From : "ken_037729@hotmail.com",
+                                            Subject : "Order Confirmation From Eatsy Services",
+                                            Body : `Dear ${data[1]}, your order has been recieved by the restaurant, you may check your order status
+                                            with this link and your table no ${data[0]}. If any information is incorrect, kindly update with the 
+                                            stuff over there`
+                                        })
+                                        .then( () => 
+                                            window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                        );
+                                    })
+                                }
+                            })
                         }
                     }
                 }else{
@@ -441,14 +496,7 @@ function displayCart(){
     sideCartDisplay.innerHTML = html;
     checkoutMenuFunction();
 }
-// calculate total amount 
-function totalAmount(data){
-    var total = 0;
-    for(var i = 0; i < data.length; i++){
-        total += parseFloat(data[i].food_price);
-    }
-    return total.toFixed(2);
-}
+
 // updating cart
 function alterData(){
     result.forEach((data)=>{
@@ -474,5 +522,49 @@ function validateEmail(mail){
     alert("You have entered an invalid email address!")
     return (false)
 }
+function totalAmount(data){
+    var total = 0;
+    for(var i = 0; i < data.length; i++){
+        total += parseFloat(data[i].food_price);
+    }
+    return total.toFixed(2);
+}
+function updateNewCart(data){
+    var newCart = [];
+    for(var i = 0; i < data.length; i++){
+        var newData = {
+            id: data[i].food_id,
+            quantity: data[i].quantity,
+            price: data[i].food_price
+        }
+        newCart.push(newData);
+    }
+    return newCart;
+}
+function filterPaymentMethod(method){
+    switch(method){
+        case "visa":
+            return "Visa Credit/ Debit card";
+        case "paypal":
+            return "Paypal Online Payment";
+        case 'apple':
+            return "Apple Pay";
+        default:
+            return "AliPay";
+    }
+}
+function alertUser(message, path){
+    alert(message);
+    window.open(path, "self");
+}
+// generating unique id function 
+function uniqueId () {
+    var idStrLen = 32;
+    var idStr = (Math.floor((Math.random() * 25)) + 10).toString(36) + "_";
+    idStr += (new Date()).getTime().toString(36) + "_";
+    do {
+        idStr += (Math.floor((Math.random() * 35))).toString(36);
+    } while (idStr.length < idStrLen);
 
-
+    return (idStr);
+}
