@@ -277,7 +277,8 @@ function proceedToCheckout(){
                                             stuff over there`
                                         })
                                         .then( () => 
-                                            window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                            window.open(`/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                            // window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
                                         );
                                     })
                                 }
@@ -339,7 +340,8 @@ function proceedToCheckout(){
                                             stuff over there`
                                         })
                                         .then( () => 
-                                            window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                            window.open(`/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                            //window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
                                         );
                                     })
                                 }
