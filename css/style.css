@@ -283,9 +283,15 @@ body::-webkit-scrollbar {
 .restaurant-div-info{
     padding: 5px 15px;
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .restaurant-div-info h4, .restaurant-div-info p{
     margin: 15px;
+}
+.restaurant-div-info p i{
+    color: #FFD700;
 }
 .click-me{
     width: 100%;

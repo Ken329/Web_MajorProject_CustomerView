@@ -80,7 +80,6 @@
     box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.75);
     background-color: white;
     border-radius: 25px;
-    
 }
 .tracking-level-dot:nth-child(1){
     margin-top: 20px;
@@ -98,7 +97,7 @@
     margin-top: 300px;
 }
 .tracking-detail{
-    padding: 0px 50px;
+    padding: 0px 10px 0px 50px;
     height: 365px;
 }
 .tracking-detail p{
@@ -125,6 +124,14 @@
     .tracking-status{
         width: 100%;
         padding: 20px;
+        align-items: center;
+        padding: 20px 30px;
+    }
+    .tracking-level div{
+        left: -10px;
+    }
+    .tracking-detail{
+        padding: 0px 0px 0px 40px;
     }
 }
 @media screen and (max-width: 550px){
@@ -132,9 +139,6 @@
         width: 40px;
         height: 40px;
         border-radius: 20px;
-    }
-    .tracking-status{
-        padding: 20px 30px;
     }
 }
 @media screen and (max-width: 470px){

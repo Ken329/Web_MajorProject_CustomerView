@@ -76,6 +76,16 @@ function alterData(type, action, result){
     putData(newResult);
 }
 
+// get price range
+function getPriceRange(range){
+    var price = parseInt(range);
+    let html = '';
+    for(var i = 0; i < price; i++){
+        html += '<i class="fas fa-dollar-sign"></i>'
+    }
+    return html;
+}
+
 // searching restaurant function
 function putData(result){
     let html = "";
@@ -86,7 +96,7 @@ function putData(result){
                         <div class="restaurant-div-info">
                             <h4>${element.user_restaurant}</h4>
                             <p>${element.user_cuisine}</p>
-                            <p>From ${element.user_start_time} to ${element.user_end_time}</p>
+                            <p>${getPriceRange(element.user_price_range)}</p>
                         </div>
                         <div class="click-me"  id="${element.user_id}"></div>
                     </div>`;

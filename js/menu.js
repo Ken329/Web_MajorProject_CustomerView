@@ -341,7 +341,7 @@ function proceedToCheckout(){
                                         })
                                         .then( () => 
                                             window.open(`/Web_MajorProject_CustomerView/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
-                                            //window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
+                                            // window.open(`/tracking.html?restaurantID=${restaurantID}&orderID=${id}`, "_self")
                                         );
                                     })
                                 }

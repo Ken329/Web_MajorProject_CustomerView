@@ -18,6 +18,15 @@ document.getElementById("categories-restaurant-con").addEventListener('click', f
     }
 })
 
+// get price range
+function getPriceRange(range){
+    var price = parseInt(range);
+    let html = '';
+    for(var i = 0; i < price; i++){
+        html += '<i class="fas fa-dollar-sign"></i>'
+    }
+    return html;
+}
 
 // button clicked function
 document.addEventListener('DOMContentLoaded', function(){
@@ -44,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             <div class="restaurant-div-info">
                                 <h4>${myData[i].user_restaurant}</h4>
                                 <p>${myData[i].user_cuisine}</p>
-                                <p>From ${myData[i].user_start_time} to ${myData[i].user_end_time}</p>
+                                <p>${getPriceRange(myData[i].user_price_range)}</p>
                             </div>
                             <div class="click-me" id="${myData[i].user_id}"></div>
                         </div>`;
@@ -67,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             <div class="restaurant-div-info">
                                 <h4>${myData[i].user_restaurant}</h4>
                                 <p>${myData[i].user_cuisine}</p>
-                                <p>From ${myData[i].user_start_time} to ${myData[i].user_end_time}</p>
+                                <p>${getPriceRange(myData[i].user_price_range)}</p>
                             </div>
                             <div class="click-me" id="${myData[i].user_id}"></div>
                         </div>`;
