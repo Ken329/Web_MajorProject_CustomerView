@@ -261,8 +261,7 @@ function proceedToCheckout(){
                                         body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[0]}&phone=${data[1]}&email=${data[2]}&type=take away&status=pending&method=${filterPaymentMethod(paymentMethod)}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
                                     })
-                                    .then((res) => res.json())
-                                    .then((resData) => {
+                                    .then(() => {
                                         Email.send({
                                             Host : "smtp.elasticemail.com",
                                             Username : "ken_037729@hotmail.com",
@@ -322,8 +321,7 @@ function proceedToCheckout(){
                                         body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[1]}&table_no=${data[0]}&phone=${data[2]}&email=${data[3]}&type=dine in&status=pending&method=${filterPaymentMethod(paymentMethod)}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
                                     })
-                                    .then((res) => res.json())
-                                    .then((resData) => {
+                                    .then(() => {
                                         Email.send({
                                             Host : "smtp.elasticemail.com",
                                             Username : "ken_037729@hotmail.com",
