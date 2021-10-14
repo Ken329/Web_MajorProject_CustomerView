@@ -255,12 +255,10 @@ function proceedToCheckout(){
                             .then((myRes) => {
                                 if(myRes.data){
                                     var newCart = updateNewCart(cart);
-                                    var today = new Date();
                                     var id = uniqueId();
-                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                     fetch('https://eatsy-0329.herokuapp.com/takeAwayFromRestaurant', {
                                         method: "POST",
-                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[0]}&phone=${data[1]}&email=${data[2]}&type=take away&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
+                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[0]}&phone=${data[1]}&email=${data[2]}&type=take away&status=pending&method=${filterPaymentMethod(paymentMethod)}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
                                     })
                                     .then((res) => res.json())
@@ -318,12 +316,10 @@ function proceedToCheckout(){
                             .then((myRes) => {
                                 if(myRes.data){
                                     var newCart = updateNewCart(cart);
-                                    var today = new Date();
                                     var id = uniqueId();
-                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                     fetch('https://eatsy-0329.herokuapp.com/dineInFromRestaurant', {
                                         method: "POST",
-                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[1]}&table_no=${data[0]}&phone=${data[2]}&email=${data[3]}&type=dine in&status=pending&method=${filterPaymentMethod(paymentMethod)}&date=${date}`,
+                                        body: `orderId=${id}&id=${restaurantID}&food=${JSON.stringify({food:newCart})}&amount=${myTotal.toFixed(2)}&customer=${data[1]}&table_no=${data[0]}&phone=${data[2]}&email=${data[3]}&type=dine in&status=pending&method=${filterPaymentMethod(paymentMethod)}`,
                                         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
                                     })
                                     .then((res) => res.json())
